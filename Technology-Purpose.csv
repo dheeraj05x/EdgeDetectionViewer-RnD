@@ -1,0 +1,7 @@
+"Technology","Purpose"
+"Kotlin","Android app development language"
+"Camera2 API","Modern Android camera interface"
+"JNI","Bridge between Kotlin/Java and C++"
+"OpenCV","Computer vision library for edge detection"
+"NDK","Native Development Kit for C++ on Android"
+"CMake","Build system for native code"
