@@ -1,35 +1,17 @@
-﻿# Built application files
-*.apk
-*.ap_
+﻿*.apk
 *.aab
-
-# Files for the Dalvik VM
 *.dex
-
-# Java class files
 *.class
-
-# Generated files
 bin/
 gen/
 out/
 build/
-
-# Gradle files
 .gradle/
 local.properties
-
-# Android Studio
 .idea/
 *.iml
 .DS_Store
 captures/
 .externalNativeBuild
 .cxx/
-
-# NDK
 obj/
-
-# OS files
-.DS_Store
-Thumbs.db
