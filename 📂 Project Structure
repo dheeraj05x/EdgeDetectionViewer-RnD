@@ -1,0 +1,16 @@
+EdgeDetectionViewer/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/example/edgedetectionviewer/
+│   │   │   │   └── MainActivity.kt          # Main Activity (Camera + JNI)
+│   │   │   ├── cpp/
+│   │   │   │   ├── native-lib.cpp            # JNI implementation
+│   │   │   │   └── CMakeLists.txt            # Native build config
+│   │   │   ├── res/
+│   │   │   │   └── layout/
+│   │   │   │       └── activity_main.xml     # TextureView layout
+│   │   │   └── AndroidManifest.xml           # Permissions & config
+│   ├── build.gradle                          # App dependencies
+├── build.gradle                              # Project config
+└── README.md                                 # This file
