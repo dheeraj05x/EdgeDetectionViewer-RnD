@@ -1,0 +1,81 @@
+┌─────────────────────────────────────────────────────────────┐
+│                      Android Device                         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │              User Interface Layer                    │  │
+│  │  - GLSurfaceView (OpenGL rendering)                 │  │
+│  │  - TextViews (FPS, Processing time)                 │  │
+│  │  - Button (Mode toggle)                             │  │
+│  └─────────────────────────┬──────────────────────────┘  │
+│                            │                              │
+│  ┌─────────────────────────▼──────────────────────────┐  │
+│  │           Application Layer (Kotlin)                │  │
+│  │  ┌────────────────────────────────────────────┐    │  │
+│  │  │ MainActivity                               │    │  │
+│  │  │ - Lifecycle management                     │    │  │
+│  │  │ - Frame processing loop                    │    │  │
+│  │  │ - Statistics calculation                   │    │  │
+│  │  │ - UI updates                               │    │  │
+│  │  └────────────────────────────────────────────┘    │  │
+│  │  ┌────────────────────────────────────────────┐    │  │
+│  │  │ CameraManager                              │    │  │
+│  │  │ - Camera2 API wrapper                      │    │  │
+│  │  │ - Frame capture loop                       │    │  │
+│  │  │ - Background thread management             │    │  │
+│  │  └────────────────────────────────────────────┘    │  │
+│  │  ┌────────────────────────────────────────────┐    │  │
+│  │  │ GLRenderer                                 │    │  │
+│  │  │ - OpenGL ES shader management             │    │  │
+│  │  │ - Texture rendering                        │    │  │
+│  │  │ - MVP matrix transformations               │    │  │
+│  │  └────────────────────────────────────────────┘    │  │
+│  └──────────────────┬───────────────────────────────┘  │
+│                     │                                   │
+│  ┌──────────────────▼───────────────────────────────┐  │
+│  │      JNI Bridge Layer (Java ↔ C++)               │  │
+│  │  - ImageProcessingJNI (Kotlin interface)        │  │
+│  │  - Method mapping & type conversion              │  │
+│  │  - Error handling & logging                      │  │
+│  └──────────────────┬───────────────────────────────┘  │
+│                     │                                   │
+│  ┌──────────────────▼───────────────────────────────┐  │
+│  │     Native Layer (C++ / OpenCV)                  │  │
+│  │  ┌──────────────────────────────────────────┐  │  │
+│  │  │ native-lib.cpp                           │  │  │
+│  │  │ - JNI function implementations            │  │  │
+│  │  │ - Memory management                       │  │  │
+│  │  │ - Exception handling                      │  │  │
+│  │  └──────────────────────────────────────────┘  │  │
+│  │  ┌──────────────────────────────────────────┐  │  │
+│  │  │ ImageProcessor.cpp/h                     │  │  │
+│  │  │ - Canny edge detection                   │  │  │
+│  │  │ - Grayscale conversion                   │  │  │
+│  │  │ - Gaussian blur filtering                │  │  │
+│  │  │ - Performance timing                     │  │  │
+│  │  └──────────────────────────────────────────┘  │  │
+│  │  ┌──────────────────────────────────────────┐  │  │
+│  │  │ OpenCV Library (4.8.0)                   │  │  │
+│  │  │ - Image processing algorithms             │  │  │
+│  │  │ - Matrix operations                       │  │  │
+│  │  │ - Color space conversions                 │  │  │
+│  │  └──────────────────────────────────────────┘  │  │
+│  └──────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────┘
+
+                     │ (Optional: Network)
+                     │
+        ┌────────────▼────────────┐
+        │   Web Server Backend    │
+        │  (MockHTTP/WebSocket)   │
+        └────────────┬────────────┘
+                     │ (JSON with base64 frame)
+        ┌────────────▼──────────────┐
+        │    Web Browser            │
+        ├──────────────────────────┤
+        │  TypeScript Application   │
+        │  - HTML5 Canvas           │
+        │  - Frame rendering        │
+        │  - Stats display          │
+        │  - Export functionality   │
+        └──────────────────────────┘
